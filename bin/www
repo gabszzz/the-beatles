@@ -5,7 +5,7 @@
  */
 
 // Load .env variables
-require('dotenv').config()
+require('dotenv').config();
 
 var app = require('../app');
 var debug = require('debug')('pi-ads-2019-2:server');

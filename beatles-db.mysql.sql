@@ -10,3 +10,9 @@ CREATE TABLE Usuario (
     login VARCHAR (50),
     senha VARCHAR (16)
 );
+
+INSERT INTO Usuario
+	VALUES
+		(null, 'John Lennon', 'john', 'lennon123');
+        
+SELECT * FROM Usuario;
