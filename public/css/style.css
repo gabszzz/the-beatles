@@ -1,7 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+  --primary-color: #000;
+  --secundary-color: #FFF;
+  --error-color: tomato;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #404040;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid #666666;
+  outline: none;
+  transition: .2s ease-in-out;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  opacity: .7;
+  margin-top: 15px;
+}
+
+[placeholder]:focus {
+  opacity: 1;
+  width: 120%;
+}
+
+@keyframes error-shake {
+  0% {margin-left: 0;}
+  25% {margin-left: 5px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -5px;}
+  100% {margin-left: 0;}
+}
+
+.input-error {
+  border-color: var(--error-color);
+  opacity: 1;
+  animation: error-shake 0.1s;
+}
+
+button {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  background-color: var(--secundary-color);
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: slategrey;
+  font-weight: bold;
+}
+
+a:hover {
+  color: steelblue;
+}
+
 
 /*********************\ 
  * INÍCIO index.html *
@@ -9,26 +85,69 @@
 .box-logo {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
 }
 
 .logo {
   opacity: 0;
-  animation: fade 10s;
+  animation: fade-in-out 10s;
 }
 
-/* ANIMAÇÃO */
-@keyframes fade {
-  10%   { opacity: 0; }
-  50%  { opacity: 1; }
-  80% { opacity: 0; }
+@keyframes fade-in-out {
+  10% { opacity: 0; }
+  50% { opacity: 1; }
+  90% { opacity: 0; }
 }
-
 /******************\ 
  * FIM index.html *
 \******************/
 
+
+/*********************\ 
+ * INÍCIO login.html *
+\*********************/
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.container-img-login {
+  width: 55%;
+  height: 100%;
+  background-image: url('../img/section-login.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(32%) contrast(90%);
+}
+
+.container-login {
+  position: relative;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.form-login input {
+  margin-bottom: 10px;
+}
+
+
+
+/******************\ 
+ * FIM login.html *
+\******************/
