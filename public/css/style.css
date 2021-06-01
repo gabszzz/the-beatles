@@ -156,3 +156,245 @@ a:hover {
 /******************\ 
  * FIM login.html *
 \******************/
+
+
+/********************\ 
+ * INÍCIO menu *
+\********************/
+
+/* NAVIGATION */
+nav {
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--primary-color);
+  opacity: .9;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+
+nav ul li a:hover {
+  color: var(--secundary-color);
+}
+
+
+nav.fill ul li a {
+  position: relative;
+}
+
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: var(--secundary-color);
+  height: 1px;
+}
+
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: var(--secundary-color);
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill .1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+@keyframes fill {
+  to {
+    width: 100%;
+    height: 1px;
+  }
+
+  from {
+    width: 0%;
+    height: 1px;
+  }
+}
+
+/************\ 
+ * FIM menu *
+\************/
+
+
+/***************\ 
+ * INÍCIO rank *
+\***************/
+
+
+.table-rank {
+  margin: 50px 50px;
+  text-align: center;
+}
+
+.table-rank h3 {
+  position: relative;
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+
+.table-fill {
+ background: white;
+ border-collapse: collapse;
+ height: 320px;
+ margin: 10px auto;
+ max-width: 50%;
+ padding:5px;
+ width: 100%;
+ box-shadow: 2px 2px 10px #000;
+}
+
+.table-fill table {
+  border-radius: 10px;
+}
+
+th {
+ color:#D5DDE5;;
+ background:#1b1e24;
+ border-bottom:4px solid #9ea7af;
+ border-right: 1px solid #343a45;
+ font-size: 23px;
+ font-weight: 100;
+ padding:24px;
+ text-align:left;
+ text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+ vertical-align:middle;
+}
+
+th:first-child {
+ border-top-left-radius:3px;
+}
+
+th:last-child {
+ border-top-right-radius:3px;
+ border-right:none;
+}
+ 
+tr {
+ border-top: 1px solid #C1C3D1;
+ border-bottom: 1px solid #C1C3D1;
+ color:#666B85;
+ font-size:16px;
+ font-weight:normal;
+ text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+/* tr:hover td {
+ background: #4E5066;
+ color:#FFFFFF;
+ border-top: 1px solid #22262e;
+} */
+
+tr:first-child {
+ border-top:none;
+}
+
+tr:last-child {
+ border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+ background:#EBEBEB;
+}
+
+/* tr:nth-child(odd):hover td {
+ background:#4E5066;
+} */
+
+tr:last-child td:first-child {
+ border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+ border-bottom-right-radius:3px;
+}
+
+td {
+ background:#FFFFFF;
+ padding: 20px;
+ text-align: left;
+ vertical-align: middle;
+ font-weight: 300;
+ font-size: 1rem;
+ text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+ /* border-right: 1px solid #C1C3D1; */
+}
+
+td:last-child {
+ border-right: 0px;
+}
+
+th.text-left {
+ text-align: left;
+}
+
+th.text-center {
+ text-align: center;
+}
+
+th.text-right {
+ text-align: right;
+}
+
+td.text-left {
+ text-align: left;
+}
+
+td.text-center {
+ text-align: center;
+}
+
+td.text-right {
+ text-align: right;
+}
+
+/************\ 
+ * FIM rank *
+\************/
+
+
+.beatles-gif {
+  margin: 110px 100px;
+  display: flex;
+  justify-content: center;
+}

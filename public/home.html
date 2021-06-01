@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Início</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav class="fill">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Biografia</a></li>
+                <li><a href="#">Galeria</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="beatles-gif">
+        <img src="img/beatles-animado2.gif" width="750px">
+    </div>
+
+    <div class="table-rank">
+        <h3>Músicas mais amadas</h3>
+        <table class="table-fill">
+            <thead>
+                <tr>
+                    <th class="text-left">Posição</th>
+                    <th class="text-left">Título</th>
+                    <th class="text-left">Votos</th>
+                </tr>
+            </thead>
+            <tbody id="table-body" class="table-hover">
+                <!-- Dados vão ser inseridos pelo Javascript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function rankList() {
+            return await fetch('/rank').then(result => result.json());
+        }
+
+        let table = document.getElementById('table-body');
+        rankList().then(result => {
+
+            for (let i = 0; i < result.length; i++) {
+                let html = 
+                `<tr>
+                    <td class="text-left">${i + 1}º</td>
+                    <td class="text-left">${result[i].titulo}</td>
+                    <td class="text-left">${result[i].votos}</td>
+                </tr>`;
+
+                table.innerHTML += html;
+            }
+        
+        }).catch(err => {
+            console.error('Falha ao realizar a requisição.', err);
+        });
+        
+    </script>
+</body>
+
+</html>

@@ -41,7 +41,7 @@ router.post('/autenticar', function (req, res, next) {
 router.post('/cadastrar', async function (req, res, next) {
 	console.log('Criando um usuário');
 
-	console.log('REQUISIÇÃO: ', req.body);
+	console.log('REQUISIÇÃO: ', req);
 
 	const sqlSelectID = `SELECT idMusica FROM Musica WHERE titulo = \'${req.body.musica}\'`;
 	const [results] = await sequelize.query(sqlSelectID, {
