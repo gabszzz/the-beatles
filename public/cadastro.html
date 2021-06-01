@@ -1,109 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto IoT - Sobre</title>
+    <title>Cadastre-se</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contato-e-login.css">
+    <link rel="shortcut icon" href="img/favicon.png">
 </head>
 <body>
-    <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href=""class="current">Cadastro</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--header fim-->
-
-    <div class="contato">
-        <div class="container">
-            <h1>Faça aqui seu cadastro!</h1>
-            <div class="formulario">
-                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                    Nome completo
-                    <input type="text" name="nome" class="input-padrao" autofocus="autofocus" placeholder="Nome e sobrenome" required minlength="4">
-                    
-                    Login
-                    <input type="text" name="login" class="input-padrao" placeholder="seu nome de usuário" required minlength="4">
-                    
-                    Senha
-                    <input type="password" name="senha" class="input-padrao" placeholder="***************" required minlength="4">
-                    
-                        
-                    <input type="submit" id="btn_entrar" value="Cadastrar" class="btn-green">
-                </form>
-
-                <img src="aguarde-orange.gif" id="img_aguarde" style="display: none; width:100px">
     
-    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
-        Erro no cadastro
-    </div>
+    <div class="container">
+        <div class="container-img-login"></div>
+        <div class="container-login">
+            <form class="form-login" method="POST" onsubmit="return cadastrar()">
+                <input type="text" placeholder="Nome" name="nome" required>
+                <input type="text" placeholder="Login" name="login" required>
+                <input type="password" placeholder="Senha (8 - 16)" name="senha" required>
+                <select id="musica" required name="musica">
+                    <option value="" disabled selected>
+                        Escolha sua música favorita
+                    </option>
+                    <option>A Day In The Life</option>
+                    <option>I Want Hold Your Hand</option>
+                    <option>Strawberry Fields Forever</option>
+                    <option>Yesterday</option>
+                    <option>In My Life</option>
+                    <option>Something</option>
+                    <option>Hey Jude</option>
+                    <option>Let It Be</option>
+                    <option>Come Together</option>
+                    <option>While My Guitar Gently Weeps</option>
+                </select>
 
-            </div>
-            <div class="imagem-lateral">
-                <img src="img/side-img-contato_orange.jpg">
+                <button>Cadastrar</button>
+            </form>
+            <div>
+                <p>Já tem uma conta? <a href="login.html">Entre aqui!</a></p>
             </div>
         </div>
-    </div>
 
-    
+    <script>
+        let form_cadastro = document.querySelector('.form-login');
 
-     <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com carinho por um aluno BandTec. Copyright © 2021</h4>
-        </div>
-    </div>
-    <!--footer fim-->
-</body>
-</html>
-
-<script>
-
-    function cadastrar() {
-        aguardar();
+        function cadastrar() {
         var formulario = new URLSearchParams(new FormData(form_cadastro));
+
         fetch("/usuarios/cadastrar", {
             method: "POST",
             body: formulario
         }).then(function (response) {
             
             if (response.ok) {
-
+                
                 window.location.href='login.html';
 
             } else {
 
                 console.log('Erro de cadastro!');
-                response.text().then(function (resposta) {
-                    div_erro.innerHTML = resposta;
-                });
-                finalizar_aguardar();
+
+                const inputs = Array.from(document.getElementsByTagName('input'));
+                    inputs.forEach(element => {
+                        element.classList.add('input-error');
+                        element.style.animation = 'none';
+                        setTimeout(() => {
+                            element.style.animation = 'error-shake 0.1s';
+                        }, 100);    
+                    }); 
+
+                // response.text().then(function (resposta) {
+                //     div_erro.innerHTML = resposta;
+                // });
+                // finalizar_aguardar();
             }
         });
 
         return false;
     }
-
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display='block';
-        div_erro.style.display='none';
-    }
-
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display='none';
-        div_erro.style.display='block';
-    }
-
-</script>
+    </script>
+</body>
+</html>
