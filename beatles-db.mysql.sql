@@ -4,15 +4,35 @@ USE BEATLES_DB;
 
 -- //////////////////////// --
 
+CREATE TABLE Musica (
+	idMusica INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(30),
+    votos INT DEFAULT 0
+);
+
 CREATE TABLE Usuario (
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR (50),
     login VARCHAR (50),
-    senha VARCHAR (16)
+    senha VARCHAR (16),
+    fkMusica INT,
+    FOREIGN KEY (fkMusica) REFERENCES Musica (idMusica)
 );
 
-INSERT INTO Usuario
+-- //////////////////////// --
+
+INSERT INTO Musica (titulo)
 	VALUES
-		(null, 'John Lennon', 'john', 'lennon123');
+	('A Day In The Life'),
+	('I Want Hold Your Hand'),
+	('Strawberry Fields Forever'),
+	('Yesterday'),
+	('In My Life'),
+	('Something'),
+	('Hey Jude'),
+	('Let It Be'),
+	('Come Together'),
+	('While My Guitar Gently Weeps');
         
 SELECT * FROM Usuario;
+SELECT * FROM Musica;
