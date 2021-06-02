@@ -480,3 +480,27 @@ div.desc {
 }
 
 /* ------- */
+
+/* Contato */
+
+.container-contato {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-contato h2 {
+  margin: 50px 50px;
+}
+
+.container-contato a {
+  font-size: 1.5rem;
+  margin: 25px 25px;
+}
+
+.container-contato img {
+  width: 80px;
+}
+
+/* ------- */
