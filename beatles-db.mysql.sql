@@ -37,4 +37,4 @@ INSERT INTO Musica (titulo)
 SELECT * FROM Usuario;
 SELECT * FROM Musica;
 
-SELECT titulo, votos FROM Musica ORDER BY DESC votos;
+SELECT titulo, votos FROM Musica ORDER BY votos DESC;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biografia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+</head>
+
+<body>
+    <header>
+        <nav class="fill">
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a style="color: white;" href="biografia.html">Biografia</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Clique em um beatle</h1>
+    <div class="container-bio">
+        <div class="lego-container">
+            <img src="img/beatles-lego.png" usemap="#image-map">
+            <map name="image-map">
+                <area title="John" coords="27,8,145,296" shape="rect" onclick="bio('john')">
+                <area title="George" coords="218,6,349,297" shape="rect" onclick="bio('george')">
+                <area title="Ringo" coords="410,9,546,294" shape="rect" onclick="bio('ringo')">
+                <area title="Paul" coords="602,2,740,296" shape="rect" onclick="bio('paul')">
+            </map>
+        </div>
+        <div class="lego-bio">
+            <h2 id="beatle-nome"></h2>
+            <p id="beatle-bio" class="beatle-bio"></p>
+        </div>
+    </div>
+
+    <script>
+
+        let biography = {
+            john: 'John Lennon (1940-1980) foi um músico inglês, líder e guitarrista da maior banda de rock de todos os tempos, The Beatles. Sua canção "Imagine" se tornou uma espécie de hino à paz mundial. John Lennon nasceu em Liverpool, na Inglaterra, no dia 9 de outubro de 1940. Na adolescência, formou a banda The Quarrymen, junto com seus colegas da escola.',
+
+            paul: 'Paul McCartney (1942) é um cantor e compositor inglês, ex-integrante da banda de rock britânica “The Beatles”, que fez grande sucesso nos anos 60. A banda era formada por John Lennon, Paul McCartney, George Harrison e Ringo Starr. Com a dissolução da banda em 1970, Paul McCartney seguiu sua carreira solo.',
+
+            george: 'George Harold Harrison, MBE, (Liverpool, 24 de Fevereiro de 1943 — Los Angeles, 29 de Novembro de 2001), foi um músico britânico, famoso por ter sido o guitarrista, compositor e cantor dos Beatles. Foi também produtor de cinema. George Harrison nasceu em 25 de fevereiro de 1943 em Liverpool, Inglaterra.',
+
+            ringo: 'Ringo Starr (1940) é um músico britânico, cantor, compositor, ator e diretor, ganhou fama nos anos 60 como baterista do grupo musical The Beatles, uma das maiores bandas de todos os tempos. Ringo Starr (1940), nome artístico de Richard Henry Parkin Starkey Jr., nasceu em Liverpool, Inglaterra, no dia 7 de julho de 1940. Filho de Richard Starbey e de Elsie Starbey, empregados de uma padaria, que se separaram quando Ringo estava com 3 anos de idade. Ainda criança, apresentou vários problemas de saúde em consequência de um apêndice infeccionado. Com 15 anos mal sabia ler e escrever. Depois de abandonar a escola, trabalhou como office boy e depois como barman em uma balsa. Foi também aprendiz de marceneiro.'
+        }
+
+        let beatleNome = document.getElementById('beatle-nome');
+        let beatleBio = document.getElementById('beatle-bio');
+
+        function bio(beatle) {
+            if (beatle == 'john') {
+                beatleNome.innerText = 'John Lennon';
+                beatleBio.innerText = biography.john;
+            } else if (beatle == 'george') {
+                beatleNome.innerText = 'George Harrison';
+                beatleBio.innerText = biography.george;
+            } else if (beatle == 'ringo') {
+                beatleNome.innerText = 'Ringo Starr';
+                beatleBio.innerText = biography.ringo;
+            } else if (beatle == 'paul') {
+                beatleNome.innerText = 'Paul McCartney';
+                beatleBio.innerText = biography.paul;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
